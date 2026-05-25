@@ -1,31 +1,33 @@
-public class Student extends  User  {
 
-    private  String grade   ;
-    private double marks  ;
+public class Student extends Person {
 
-    public Student(int id, String name, int age, String grade, double marks) {
-        super(id, name, age);
+    private String grade;
+    private double marks;
+
+    public Student(String name, int age, String grade, double marks) {
+        super(name, age);          // ✅ parent constructor call
         this.grade = grade;
         this.marks = marks;
     }
 
     @Override
+    public String getRole() {
+        return "I am a Student";
+    }
+
+    public void study() {
+        System.out.println("Student " + getName() + " is studying");
+    }
+
+    public String getResult() {
+        return marks >= 35 ? "Pass" : "Fail";
+    }
+
+    @Override
     public void introduce() {
-      //  System.out.println("Hi, I am " + name +  " my ID is " +  id );
+        super.introduce();
+        System.out.println("Grade  : " + grade);
+        System.out.println("Result : " + getResult() + " (marks: " + marks + ")");
+        System.out.println("─────────────────────────────");
     }
-
-    void study()  {
-        System.out.println("Student " + name +  " is studying");
-    }
-
-    // getResult() → agar marks >= 35 toh "Pass" warna "Fail"
-
-    private void  getResult() {
-        if(marks>= 35 ) {
-            System.out.println("Student " + name  + "is pass  ");
-        }else {
-            System.out.println("Student " + name  + "is fail    ");
-        }
-    }
-
 }

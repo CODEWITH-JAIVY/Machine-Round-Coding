@@ -1,39 +1,33 @@
-public class Teacher extends  User {
 
+public class Teacher extends Person {
 
-    private String subject  ;
-    private    double salary  ;
+    private String subject;
+    private double salary;
 
-    public Teacher(int id, String name, int age, String subject, double salary ) {
-        super(id, name, age);
+    public Teacher(String name, int age, String subject, double salary) {
+        super(name, age);         // ✅ parent constructor call
         this.subject = subject;
-        this.salary = salary;
+        this.salary  = salary;
     }
 
-    public String getSubject() {
-        return subject;
+    @Override
+    public String getRole() {
+        return "I am a Teacher";
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void teach() {
+        System.out.println("Teacher " + getName() + " is teaching " + subject);
     }
 
     public double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-
-    private  void teach() {
-         // "Teacher [name] is teaching [subject]"
-        System.out.println( " Teacher  " + name + " is teaching " + subject  );
-    }
-
     @Override
     public void introduce() {
-        System.out.println( "Hi, I am "  + name + " my  id "  + "is"  + id   );
+        super.introduce();
+        System.out.println("Subject : " + subject);
+        System.out.println("Salary  : ₹" + salary);
+        System.out.println("─────────────────────────────");
     }
 }

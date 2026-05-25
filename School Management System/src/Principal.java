@@ -1,33 +1,31 @@
-public class Principal extends  User {
-    private  String schoolName  ;
 
-    public Principal(int id, String name, int age, String schoolName) {
-        super(id, name, age);
+public class Principal extends Person {
+
+    private String schoolName;
+
+    public Principal(String name, int age, String schoolName) {
+        super(name, age);         // ✅ parent constructor call
         this.schoolName = schoolName;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    @Override
+    public String getRole() {
+        return "I am a Principal";
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void manage() {
+        System.out.println("Principal " + getName() +
+                " is managing " + schoolName);
     }
 
-
-    public  void manage() {
-        // "Principal [name] is managing [schoolName]"
-        System.out.println("Principal  " + name  + " is " +  " managing " + schoolName );
+    public void callMeeting() {
+        System.out.println("Meeting called by Principal " + getName());
     }
-
-     public void callMeeting() {
-        // "Meeting called by Principal [name]"
-         System.out.println(" Meeting called by  Principal  " + name  );
-     }
 
     @Override
     public void introduce() {
-        // "Hi, I am [name], my ID is [id]"
-        System.out.println(" Hii , i am  " + name  +  " My id is " + id );
+        super.introduce();
+        System.out.println("School : " + schoolName);
+        System.out.println("─────────────────────────────");
     }
 }

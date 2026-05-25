@@ -21,7 +21,9 @@ public class Main {
         System.out.println("===========================================");
         school.showAllMembers();
         System.out.println("============================================");
-        teacher2.getSalary() ;
+//        teacher2.getSalary() ;
+//        // ✅ Fix: wrap it in println
+        System.out.println("Salary: " + teacher2.getSalary());
         System.out.println("============================================");
         student.study() ;
 

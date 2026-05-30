@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
+public class BorrowingRules   {
 
-public class BorrowingRules {
+    Member member  = new Member() ;
+
+    public void borrowe() {
+
+    }
 }
